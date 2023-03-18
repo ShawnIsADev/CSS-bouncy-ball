@@ -1,0 +1,200 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 60px;
+}
+
+body{
+    height: 100dvh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+    perspective: 20em;
+    perspective-origin: 77px 100px ;
+    position: relative;
+}
+
+/* dont need */
+/* h1{
+    position: absolute;
+    top: 25%;
+    margin-left: 12px;
+    margin-bottom: 10px;
+    animation: drop 5s ease-in-out forwards;
+} */
+
+
+
+@keyframes drop{
+    0%{opacity: 0}
+    30% {opacity: 0.2; transform: translateX(-100px)}
+    40% {opacity: 0.5; transform: translateY(100px)}
+    70%{transform: translateY(-30px)}
+    100%{transform: translateY(30px)}
+  }
+
+
+
+.cube{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    /* animation: animate 5s ease-in-out infinite; */
+
+    animation: cubeHeight 1.5s infinite linear;
+   
+}
+
+@keyframes cubeHeight {
+    0%, 100%{ height: 1.5em; }
+    8%, 93.5% { height: 2em;}
+    to{
+        transform: rotateY(180deg);
+    }
+}
+
+
+/* @keyframes animate {
+    to{
+        transform: rotateY(360deg);
+    }
+} */
+
+/* @keyframes animate {
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-25px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+} */
+
+.shadow{
+    background: aqua;
+    width: 1rem;
+    height: 2em;
+    
+    transform: translateZ(-130px)
+    translateX(10px)
+    rotateX(90deg)
+    rotateZ(3deg);
+    position: absolute;
+    bottom: 0.1em;
+    box-shadow: 0 120px 100px 10px rgba(2, 112, 112, 0.467),
+                50px 120px 100px 10px rgba(2, 112, 112, 0.467) ;
+    filter: blur(100px);
+   
+}
+
+.top, .bottom, .left, .right, .front, .back{
+    height: 2em;
+    width: 2em;
+    background: aqua;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    box-shadow: 0 0 50px 10px  rgba(2, 112, 112, 0.467)  inset,
+                0 0 0 2em  rgba(2, 112, 112, 0.467) inset ;
+}
+
+.ball{
+    position: absolute;
+    top: -1em;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background: lightblue;
+    background-image: radial-gradient(
+        circle at top,
+        lightblue,
+        #000
+
+    );
+
+    animation: ballBounce 1.5s infinite ease-out;
+   
+}
+
+@keyframes ballBounce {
+    0%, 100%{ top: -1em;  }
+    50% { top: -3em; animation-timing-function: ease-in;  }
+    to{
+        transform: rotateX(-180deg);
+    }
+}
+
+
+.ballShadow{
+    position: absolute;
+    width: 100%; height: 100%;
+    background-image: radial-gradient(
+        #0007, #0000 50%
+    );
+
+    animation: ballShadow 1.5s infinite ease-out;
+}
+
+@keyframes ballShadow {
+    0%, 100%{ transform: scale(1); opacity: 1;  }
+    50% { transform: scale(2); opacity: 0.5; animation-timing-function: ease-in;  }
+}
+
+
+.front{
+    transform: translateZ(1em);
+}
+.back{
+    transform: translateZ(-1em);
+}
+
+.top{
+    transform: translateY(-1em) rotateX(90deg);
+}
+
+.bottom{
+    transform: translateY(1em) rotateX(90deg);
+}
+
+.right{
+    transform: translateX(1em) rotateY(90deg);
+}
+
+.left{
+    transform: translateX(-1em) rotateY(90deg);
+}
+
+
+
+
+.toggle-hamburger-menu{
+    position: absolute;
+    top: .74rem;
+    right: 0.55rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+
+}
+
+.toggle-hamburger-menu .bar{
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+@media (max-width: 600px){
+    .toggle-hamburger-menu{
+        display: flex;
+    }
+}
