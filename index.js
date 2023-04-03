@@ -1,3 +1,15 @@
+/*
+
+When you click on the cube once, it deconstructs, then automatically recontructs itself, and I made it so it looks like 
+the ball is bouncing the decontructed pieces back together!
+
+When you do click on the cube more than once at a time, it will deconstruct, and stay decontructed. I will try to make it where it'll go back
+to normal with GSAP at a later date. 
+
+P.S. Also click the Hamburger menu once as well. It was a fun x and y axis project with the javascript portion, the CSS portion was fun as well. Enjoy!
+
+
+*/
 const bar = document.querySelectorAll(".bar")
 const h1 = document.getElementById("h1")
 const cube = document.querySelector(".cube")
